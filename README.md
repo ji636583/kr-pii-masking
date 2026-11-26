@@ -13,6 +13,21 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory web
 
 이름은 `이름`, `성명`, `담당자`, `담당자명`, `신청인`으로 표시된 한글 이름을 찾습니다. 모바일 번호와 주민등록번호는 숫자 형식으로 탐지합니다. 데모에서는 합성 문서를 사용합니다.
 
+## 초기 모델 실험
+
+`model/`은 이름·전화번호·주민등록번호의 문자 위치를 BIO 토큰 태그로 바꾸고, CPU에서 선형 분류기를 학습하는 합성 실험입니다. 인코더는 동결한 KLUE-RoBERTa Base를 사용합니다. [인코더 리비전](https://huggingface.co/klue/roberta-base/tree/02f94ba5e3fcb7e2a58a390b8639b0fac974a8da)
+
+Python 3.10 이상 환경에서 저장소 루트의 명령을 실행합니다.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r model/requirements.txt
+python -m model.train
+```
+
+첫 실행에는 공개 인코더와 토크나이저 다운로드가 필요합니다. 기본 설정은 합성 학습 160건으로 1회 학습한 뒤 검증 48건을 평가하고, 학습 손실·정확 스팬 F1·미마스킹·과마스킹을 JSON으로 출력합니다. 빠른 실행 확인에는 `python -m model.train --limit-per-split 12`를 사용합니다.
+
 ## 초기 연구 기록
 
 웹의 연구 기준선은 2026-11-26에 정리한 연구 자료의 v3 규칙 단독 집계를 인용합니다. 고정 테스트 110건은 `evidence/v3-cpu/comparison.tsv`의 `rules` 행, 독립 QA 16건은 `evidence/v2-v3-qa/README.md`의 독립 challenge 규칙 행에서 가져왔습니다. 이 두 세트는 입력 분포가 서로 다릅니다. 웹 데모의 평가 점수는 미측정 상태입니다.
