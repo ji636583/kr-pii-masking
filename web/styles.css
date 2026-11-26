@@ -85,6 +85,7 @@ main {
   margin: 12px 0 0;
   color: var(--muted);
   line-height: 1.6;
+  word-break: keep-all;
 }
 
 .intro .mode {
@@ -315,12 +316,8 @@ mark {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .panel {
-    grid-template-rows: auto minmax(212px, 1fr) auto;
-  }
-
   textarea {
-    min-height: 212px;
+    min-height: 304px;
   }
 
   .panel-heading,
