@@ -27,7 +27,21 @@ function renderMasking() {
     : '규칙이 찾은 항목이 없습니다.';
 }
 
-submit.disabled = false;
+function resetPreview() {
+  const hasText = source.value.trim().length > 0;
+  const placeholder = document.createElement('p');
+  placeholder.className = 'empty-state';
+  placeholder.textContent = hasText
+    ? '마스킹을 실행하면 결과가 여기에 표시됩니다.'
+    : '문서를 입력하면 마스킹할 수 있습니다.';
+
+  result.replaceChildren(placeholder);
+  status.textContent = '실행 전';
+  submit.disabled = !hasText;
+}
+
+source.addEventListener('input', resetPreview);
+resetPreview();
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
