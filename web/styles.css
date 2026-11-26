@@ -67,9 +67,10 @@ a {
   font: 700 0.81rem ui-monospace, monospace;
 }
 
-.project-label {
+.nav-link {
   color: var(--muted);
   font-size: 0.85rem;
+  font-weight: 650;
 }
 
 main {
@@ -108,7 +109,8 @@ h2 {
   font-size: 1.25rem;
 }
 
-.workspace {
+.workspace,
+.benchmark-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
@@ -170,7 +172,18 @@ textarea::placeholder,
 
 .document {
   min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
   background: #fafcff;
+}
+
+mark {
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #164795;
+  background: #e5eeff;
+  font-family: ui-monospace, monospace;
+  font-size: 0.86em;
 }
 
 .panel-footer {
@@ -237,6 +250,57 @@ textarea::placeholder,
   line-height: 1.6;
 }
 
+.research {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.research-intro {
+  margin: 8px 0 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.benchmark {
+  padding: 18px 23px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.benchmark h3 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.benchmark h3 span {
+  margin-inline-start: 5px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 15px 0 0;
+}
+
+.metrics dt {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.metrics dd {
+  margin: 4px 0 0;
+  font-size: 1.16rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
 @media (max-width: 700px) {
   .container {
     width: calc(100% - 32px);
@@ -246,7 +310,8 @@ textarea::placeholder,
     padding-top: 38px;
   }
 
-  .workspace {
+  .workspace,
+  .benchmark-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -264,18 +329,4 @@ textarea::placeholder,
   .panel-footer {
     padding-inline: 17px;
   }
-}
-
-.document {
-  overflow-wrap: anywhere;
-  white-space: pre-wrap;
-}
-
-mark {
-  padding: 2px 5px;
-  border-radius: 4px;
-  color: #164795;
-  background: #e5eeff;
-  font-family: ui-monospace, monospace;
-  font-size: 0.86em;
 }

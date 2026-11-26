@@ -16,7 +16,9 @@
         <span class="brand-icon" aria-hidden="true">[••]</span>
         <span>kr-pii-masking</span>
       </a>
-      <span class="project-label">오픈소스기초설계</span>
+      <nav aria-label="주 메뉴">
+        <a class="nav-link" href="#research">연구 기준선</a>
+      </nav>
     </div>
   </header>
 
@@ -55,6 +57,29 @@
       </section>
     </section>
     <p class="privacy-note">문서는 브라우저 안에서만 처리됩니다. 데모에는 합성 문서를 사용하세요. 탐지 범위 밖의 내용은 결과에 그대로 남습니다.</p>
+
+    <section class="research" id="research" aria-labelledby="research-title">
+      <h2 id="research-title">연구 기준선</h2>
+      <p class="research-intro">별도로 진행한 v3 규칙 기준선의 합성 데이터 평가입니다. F1은 개인정보 유형과 시작·끝 위치가 모두 일치하는 구간을 기준으로 계산했습니다.</p>
+      <div class="benchmark-grid">
+        <section class="benchmark" aria-labelledby="holdout-title">
+          <h3 id="holdout-title">고정 테스트 <span>110건</span></h3>
+          <dl class="metrics">
+            <div><dt>정확 스팬 F1</dt><dd>0.7391</dd></div>
+            <div><dt>미마스킹</dt><dd>15자</dd></div>
+            <div><dt>과마스킹</dt><dd>625자</dd></div>
+          </dl>
+        </section>
+        <section class="benchmark" aria-labelledby="qa-title">
+          <h3 id="qa-title">독립 QA <span>16건</span></h3>
+          <dl class="metrics">
+            <div><dt>정확 스팬 F1</dt><dd>0.1111</dd></div>
+            <div><dt>미마스킹</dt><dd>132자</dd></div>
+            <div><dt>과마스킹</dt><dd>0자</dd></div>
+          </dl>
+        </section>
+      </div>
+    </section>
   </main>
 </body>
 </html>
