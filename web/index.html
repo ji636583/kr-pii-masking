@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta name="description" content="한국어 문서의 이름, 전화번호, 주민등록번호를 가려 보는 팀 프로젝트 초안">
+  <title>한국어 개인정보 마스킹</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./">
+        <span class="brand-icon" aria-hidden="true">[••]</span>
+        <span>kr-pii-masking</span>
+      </a>
+      <span class="project-label">오픈소스기초설계</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="mode">브라우저 데모</p>
+      <h1 id="page-title">한국어 개인정보 마스킹</h1>
+      <p>문서에서 이름, 전화번호, 주민등록번호가 가려지는 위치를 확인해 보세요.</p>
+    </section>
+
+    <section class="workspace" aria-label="원문과 마스킹 결과 비교">
+      <form class="panel input-panel" autocomplete="off">
+        <div class="panel-heading">
+          <h2><label for="source-text">원문</label></h2>
+          <p id="input-help">테스트용 문서를 입력하세요.</p>
+        </div>
+        <textarea id="source-text" aria-describedby="input-help" spellcheck="false"
+          autocomplete="off" placeholder="문서 내용을 입력하세요."></textarea>
+        <div class="panel-footer input-actions">
+          <button class="button button-primary" type="submit" disabled>마스킹 실행</button>
+        </div>
+      </form>
+
+      <section class="panel output-panel" aria-labelledby="result-title">
+        <div class="panel-heading">
+          <h2 id="result-title">마스킹 결과</h2>
+          <p>감지한 구간을 유형별 태그로 표시합니다.</p>
+        </div>
+        <div class="document">
+          <p class="empty-state">마스킹 결과가 여기에 표시됩니다.</p>
+        </div>
+        <div class="panel-footer">
+          <p class="result-status" role="status">실행 전</p>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
