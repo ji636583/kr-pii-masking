@@ -184,7 +184,7 @@ textarea::placeholder,
 }
 
 .input-actions {
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .result-status {
@@ -214,10 +214,27 @@ textarea::placeholder,
   background: #123e99;
 }
 
+.button-secondary {
+  border-color: var(--line);
+  color: #243854;
+  background: #fff;
+}
+
+.button-secondary:hover {
+  background: #f0f4fa;
+}
+
 .button:disabled {
   color: #53647b;
   background: #e8edf5;
   cursor: default;
+}
+
+.privacy-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
 
 @media (max-width: 700px) {

@@ -5,6 +5,16 @@ const source = document.querySelector('#source-text');
 const result = document.querySelector('#masked-document');
 const status = document.querySelector('#result-status');
 const submit = form.querySelector('button[type="submit"]');
+const loadExample = document.querySelector('#load-example');
+
+const example = `프로젝트 제안요청서 (합성 예시)
+
+사업명: 도서 대출 시스템 개선
+담당자: 가람샘
+연락처: 010-0000-0000
+테스트 식별번호: 000000-3000000
+
+요청 내용: 대출 현황 조회 및 월별 통계 화면 구축`;
 
 function renderMasking() {
   const { segments, counts } = maskDocument(source.value);
@@ -40,8 +50,21 @@ function resetPreview() {
   submit.disabled = !hasText;
 }
 
+function showExample() {
+  source.value = example;
+  submit.disabled = false;
+  renderMasking();
+}
+
 source.addEventListener('input', resetPreview);
-resetPreview();
+loadExample.addEventListener('click', showExample);
+loadExample.disabled = false;
+
+if (source.value) {
+  resetPreview();
+} else {
+  showExample();
+}
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
