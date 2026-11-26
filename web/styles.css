@@ -248,3 +248,17 @@ textarea::placeholder,
     padding-inline: 17px;
   }
 }
+
+.document {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+mark {
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #164795;
+  background: #e5eeff;
+  font-family: ui-monospace, monospace;
+  font-size: 0.86em;
+}
